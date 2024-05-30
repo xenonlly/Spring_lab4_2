@@ -6,6 +6,5 @@ import java.util.Optional;
 
 public interface ImgStorageRepository<K, V> {
     Optional<V> findById(long id);
-
     V save(V entity);
 }

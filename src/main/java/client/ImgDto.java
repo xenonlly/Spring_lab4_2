@@ -9,7 +9,6 @@ public class ImgDto {
     private int id;
     private String imgBase64data;
 
-    
     public ImgDto() {
     }
 

@@ -14,7 +14,6 @@ public class Main {
 
     private static final MyApi api = retrofit.create(MyApi.class);
 
-
     public static void main(String[] args) {
         // Пример использования методов
         sendBase64String("SGVsbG8gV29ybGQ="); // отправка строки

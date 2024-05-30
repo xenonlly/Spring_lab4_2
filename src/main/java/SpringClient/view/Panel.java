@@ -96,7 +96,6 @@ public class Panel extends JPanel {
         this.repaint();
     }
 
-
     public File getFile() {
         return fileChooser.getSelectedFile();
     }

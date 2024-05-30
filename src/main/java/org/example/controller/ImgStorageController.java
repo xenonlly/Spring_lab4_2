@@ -19,7 +19,6 @@ public class ImgStorageController {
         return saved;
     }
 
-
     @GetMapping("/{id}")
     public ImgDto getImgById(@PathVariable("id") int id) {
         System.out.println("before get");

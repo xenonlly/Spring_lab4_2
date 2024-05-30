@@ -13,7 +13,6 @@ public class ImgStorageServiceImpl implements ImgStorageService {
 
     private final ImgStorageRepository<Long, ImgEntity> repository;
     private final Mapper<ImgEntity, ImgDto> mapper;
-
     @Override
     public ImgDto save(ImgDto dto) {
         return mapper.toDto(repository.save(mapper.toEntity(dto)));

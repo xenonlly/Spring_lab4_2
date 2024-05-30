@@ -11,7 +11,6 @@ public class MapperImpl implements Mapper<ImgEntity, ImgDto>{
         return new ImgEntity(dto.getId(), dto.getImgBase64data());
     }
 
-
     @Override
     public ImgDto toDto(ImgEntity entity) {
         return new ImgDto(entity.getId(), entity.getData());

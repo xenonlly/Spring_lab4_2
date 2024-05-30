@@ -19,7 +19,6 @@ public class ImgEntity {
         this.id = id;
     }
 
-
     public void setData(String data) {
         this.data = data;
     }
