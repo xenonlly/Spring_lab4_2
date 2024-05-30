@@ -1,0 +1,189 @@
+@startuml
+class org.example.service.MapperImpl {
++ ImgEntity toEntity(ImgDto)
++ ImgDto toDto(ImgEntity)
+}
+
+class client.ImgDto {
+- int id
+- String imgBase64data
++ void setId(int)
++ void setImgBase64data(String)
+}
+
+
+class org.example.controller.ApplicationExceptionHandler {
++ ResponseEntity<String> handleImgNotFoundException(ImgNotFoundException)
++ ResponseEntity<String> handleOtherException(Exception)
+}
+
+class client.Main {
+- {static} Retrofit retrofit
+- {static} MyApi api
++ {static} void main(String[])
++ {static} void sendBase64String(String)
++ {static} void getBase64StringById(int)
+}
+
+
+class SpringClient.controller.ClientController {
+- MainFrame mainFrame
+- RestClient restClient
+- String uriBase
+}
+
+class SpringClient.controller.ClientController$FileChooserListener {
++ void actionPerformed(ActionEvent)
+}
+
+class SpringClient.controller.ClientController$SendListener {
++ void actionPerformed(ActionEvent)
+}
+
+class SpringClient.controller.ClientController$ReceiveMapListener {
++ void actionPerformed(ActionEvent)
+}
+
+class SpringClient.controller.ClientController$ReceiveJsonListener {
++ void actionPerformed(ActionEvent)
+}
+
+class org.example.repository.InMemoryImgRepository {
+- Map<Long,ImgEntity> storage
+- AtomicLong idSequence
++ Optional<ImgEntity> findById(long)
++ ImgEntity save(ImgEntity)
+}
+
+
+class org.example.controller.ImgStorageController {
+- ImgStorageService service
++ ImgDto save(ImgDto)
++ ImgDto getImgById(int)
++ ResponseEntity<?> getAll()
+}
+
+
+interface org.example.repository.ImgStorageRepository {
+~ Optional<V> findById(long)
+~ V save(V)
+}
+
+class org.example.DemoApplication {
++ {static} void main(String[])
+}
+
+interface org.example.service.Mapper {
+~ E toEntity(D)
+~ D toDto(E)
+}
+
+class org.example.model.ImgNotFoundException {
+}
+class SpringClient.view.Panel {
+- JButton buttonOpenImage
+- JButton buttonSend
+- JButton buttonReceiveMap
+- JButton buttonReceiveJson
+- JFileChooser fileChooser
+- JLabel image
+- JLabel imageName
++ void addListenerFileChooser(ActionListener)
++ void addListenerSend(ActionListener)
++ void addListenerReceiveMap(ActionListener)
++ void addListenerReceiveJson(ActionListener)
++ void setImage()
++ File getFile()
++ void reloadFileChooser()
+}
+
+
+class SpringClient.view.MainFrame {
+- Panel panel
++ void addListenerFileChooser(ActionListener)
++ void addListenerSend(ActionListener)
++ void addListenerReceiveMap(ActionListener)
++ void addListenerReceiveJson(ActionListener)
++ void setImage()
++ File getFile()
++ void reloadFileChooser()
+}
+
+
+interface client.MyApi {
+~ Call<ImgDto> save(ImgDto)
+~ Call<ImgDto> getImgById(int)
+~ Call<List<ImgDto>> getAllBase64()
+}
+
+class client.RetrofitClient {
+- {static} Retrofit retrofit
++ {static} Retrofit getClient(String)
+}
+
+
+class org.example.service.ImgStorageServiceImpl {
+- ImgStorageRepository<Long,ImgEntity> repository
+- Mapper<ImgEntity,ImgDto> mapper
++ ImgDto save(ImgDto)
++ ImgDto getById(Long)
+}
+
+
+class SpringClient.ImgDto {
+- int id
+- String imgBase64data
++ void setId(int)
++ void setImgBase64data(String)
+}
+
+
+class org.example.controller.ImgDto {
+- Long id
+- String imgBase64data
++ Long getId()
++ void setId(Long)
++ String getImgBase64data()
++ void setImgBase64data(String)
+}
+
+
+class org.example.model.ImgEntity {
+- Long id
+- String data
++ void setId(Long)
++ void setData(String)
+}
+
+
+interface org.example.service.ImgStorageService {
+~ ImgDto save(ImgDto)
+~ ImgDto getById(Long)
+}
+
+class SpringClient.Main {
++ {static} void main(String[])
+}
+
+class SpringClient.service.Convertor {
++ {static} JSONObject JpegToJson(File)
++ {static} void JsonToJpeg(String)
+}
+
+
+
+org.example.service.Mapper <|.. org.example.service.MapperImpl
+SpringClient.controller.ClientController +.. SpringClient.controller.ClientController$FileChooserListener
+SpringClient.controller.ActionListener <|.. SpringClient.controller.ClientController$FileChooserListener
+SpringClient.controller.ClientController +.. SpringClient.controller.ClientController$SendListener
+SpringClient.controller.ActionListener <|.. SpringClient.controller.ClientController$SendListener
+SpringClient.controller.ClientController +.. SpringClient.controller.ClientController$ReceiveMapListener
+SpringClient.controller.ActionListener <|.. SpringClient.controller.ClientController$ReceiveMapListener
+SpringClient.controller.ClientController +.. SpringClient.controller.ClientController$ReceiveJsonListener
+SpringClient.controller.ActionListener <|.. SpringClient.controller.ClientController$ReceiveJsonListener
+org.example.repository.ImgStorageRepository <|.. org.example.repository.InMemoryImgRepository
+org.example.model.RuntimeException <|-- org.example.model.ImgNotFoundException
+SpringClient.view.JPanel <|-- SpringClient.view.Panel
+SpringClient.view.JFrame <|-- SpringClient.view.MainFrame
+org.example.service.ImgStorageService <|.. org.example.service.ImgStorageServiceImpl
+@enduml
