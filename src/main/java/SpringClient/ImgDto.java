@@ -17,6 +17,7 @@ public class ImgDto {
         this.imgBase64data = imgBase64data;
     }
 
+
     public ImgDto(String imgBase64data) {
         this.imgBase64data = imgBase64data;
     }

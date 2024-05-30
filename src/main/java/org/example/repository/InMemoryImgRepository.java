@@ -16,6 +16,7 @@ public class InMemoryImgRepository implements ImgStorageRepository<Long, ImgEnti
         return Optional.of(storage.get(id));
     }
 
+
     @Override
     public ImgEntity save(ImgEntity entity) {
         long tmp = idSequence.get();

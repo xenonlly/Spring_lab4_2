@@ -15,6 +15,7 @@ public class ApplicationExceptionHandler {
                 .body(e.getMessage());
     }
 
+
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleOtherException(Exception e) {
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)

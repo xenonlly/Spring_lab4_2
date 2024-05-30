@@ -30,6 +30,7 @@ public class ClientController {
         mainFrame.addListenerReceiveJson(new ReceiveJsonListener());
     }
 
+
     private class FileChooserListener implements ActionListener {
 
         @Override

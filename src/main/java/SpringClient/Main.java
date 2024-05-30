@@ -15,6 +15,7 @@ public class Main {
         ClientController controller = new ClientController(mainFrame,restClient);
 
 
+
 //        String uriBase ="http://localhost:8080/";
 //        ImgDto article = new ImgDto(1, "HowtouseRestClient");
 //        ResponseEntity<Void> response = restClient.post()

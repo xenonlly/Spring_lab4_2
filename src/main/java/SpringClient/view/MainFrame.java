@@ -26,6 +26,7 @@ public class MainFrame extends JFrame {
     }
 
 
+
     public void addListenerSend(ActionListener actionListener) {
         panel.addListenerSend(actionListener);
     }

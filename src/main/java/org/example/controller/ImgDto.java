@@ -20,6 +20,7 @@ public class ImgDto {
     public ImgDto() {
     }
 
+
     public Long getId() {
         return id;
     }
